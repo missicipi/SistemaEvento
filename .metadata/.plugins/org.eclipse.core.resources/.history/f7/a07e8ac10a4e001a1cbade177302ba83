@@ -48,7 +48,7 @@
 				Data: <span th:text="${evento.data}"> </span>
 			</p>
 			<p>
-				Horario: <span th:time="${evento.horario}"> </span>
+				Horario: <span th:text="${evento.horario}"> </span>
 			</p>
 
 		</div>

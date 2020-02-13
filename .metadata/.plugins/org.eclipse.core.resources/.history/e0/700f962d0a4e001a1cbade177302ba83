@@ -38,7 +38,6 @@
 
 
 	<form class="container" method="post">
-	<br>
 		<div class="row">
 
 			Nome: <input type="text" value=" " name="nome" /><br>
@@ -52,7 +51,7 @@
 					Data: <input type="date" value=" " name="data" /><br>
 				</div>
 				<div class="input-field col s3">
-					Horario: <input type="time" value=" " name="horario" /><br>
+					Horario: <input type="text" value=" " name="horario" /><br>
 				</div>
 			</div>
 			<button class="waves-effect waves-light btn" type="submit">Salvar</button>

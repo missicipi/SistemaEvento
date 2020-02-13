@@ -15,27 +15,10 @@
 <title>Evento</title>
 </head>
 <body>
-	<header>
-
-		<nav>
-			<div class="nav-wrapper">
-				<a href="#" class="brand-logo">Evento</a>
-				<ul id="nav-mobile" class="right hide-on-med-and-down">
-					<li><a href="/eventos" class="waves-effect waves-light btn"><i
-							class="material-icons left" title="Lista Eventos">assignment</i>Lista
-							Eventos</a></li>
-
-				</ul>
-			</div>
-		</nav>
-
-
-
-
-	</header>
-
-	<br>
-
+	<h1>Evento</h1>
+	<a href="/eventos" class="waves-effect waves-light btn"><i
+		class="material-icons left" title="Lista Eventos">assignment</i>Lista
+		Eventos</a>
 	<div th:each="evento : ${evento}" class="container">
 		<div class="row">
 			<p>
@@ -48,7 +31,7 @@
 				Data: <span th:text="${evento.data}"> </span>
 			</p>
 			<p>
-				Horario: <span th:time="${evento.horario}"> </span>
+				Horario: <span th:text="${evento.horario}"> </span>
 			</p>
 
 		</div>
@@ -66,15 +49,11 @@
 	</div>
 	<div th:each="convidados : ${convidados}" class="container">
 		<div class="row">
-			<p>
-			<div class="input-field col s3">
-				Nome: <span th:text="${convidados.nomeConvidado}"> </span>
-			</div>
+			<p><div class="input-field col s3">
+				Nome: <span th:text="${convidados.nomeConvidado}"> </span></div>
 			</p>
-			<p>
-			<div class="input-field col s3">
-				RG: <span th:text="${convidados.rg}"> </span>
-			</div>
+			<p><div class="input-field col s3">
+				RG: <span th:text="${convidados.rg}"> </span></div>
 			</p>
 		</div>
 
