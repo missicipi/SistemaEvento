@@ -57,7 +57,7 @@ public class EventoController {
 		return mv;
 	}
 	
-	@RequestMapping("/deletar")
+	@RequestMapping("/deletarEvento")
 	public String deletarEvento(Integer id) {
 		Evento evento = er.findById(id);//vai buscar
 		er.delete(evento);//pegar e apagar
@@ -70,6 +70,24 @@ public class EventoController {
 		convidado.setEvento(evento);
 		cr.save(convidado);
 		return "redirect:/{id}";
+	}
+	
+	/*@RequestMapping("/deletarConvidado")
+	public String deletarConvidado(String rg) {
+		Convidado convidado = cr.findByRg(rg);//vai buscar
+		cr.delete(convidado);//pegar e apagar
+		return "redirect:/detalhesEventos";//vai voltar para pagina
+	}*/
+	
+	@RequestMapping("/deletarConvidado")
+	public String deletarConvidado(String rg) {
+		Convidado convidado = cr.findByRg(rg);//vindo do repository
+		cr.delete(convidado);
+		//para redirecionar para o codigo desse evento
+		Evento evento = convidado.getEvento();
+		Integer idint = evento.getId();
+		String id = "" + idint;
+		return "redirect:/"+id;
 	}
 
 }
