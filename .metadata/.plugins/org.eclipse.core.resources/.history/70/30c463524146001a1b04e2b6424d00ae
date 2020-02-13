@@ -1,0 +1,7 @@
+package com.eventosapp.br.repository;
+
+import com.eventosapp.br.domain.Evento;
+
+public interface EventosRepository extends CrudRepository<Evento, String> {
+
+}

@@ -1,0 +1,9 @@
+package com.eventosapp.br.repository;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.eventosapp.br.domain.Convidado;
+
+public interface RepositoryConvidado extends CrudRepository<Convidado, String>{
+
+}

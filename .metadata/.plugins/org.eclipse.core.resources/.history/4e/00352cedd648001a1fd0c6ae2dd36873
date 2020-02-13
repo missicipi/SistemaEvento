@@ -1,0 +1,53 @@
+package com.eventosapp.br.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.eventosapp.br.domain.Evento;
+import com.eventosapp.br.repository.EventosRepository;
+
+@Controller
+public class EventoController {
+
+	@Autowired
+	private EventosRepository er;
+	
+	@RequestMapping(value="/cadastrarEvento",method=RequestMethod.GET)
+	public String form() {
+		return "Evento/formEvento";
+	}
+	@RequestMapping(value="/cadastrarEvento",method=RequestMethod.POST)
+	public String form(Evento evento) {
+		
+		er.save(evento);//salvar o evento no banco
+		System.out.println("Salvo no banco");
+		return "redirect:cadastrarEvento";
+	}
+	
+	//para retornar uma lista
+	@RequestMapping("/eventos")
+	public ModelAndView ListaEventos() {
+		
+		//para renderizar
+		ModelAndView mv = new ModelAndView("index");
+		Iterable<Evento> eventos = er.findAll();//fazer a busca no banco
+		mv.addObject("eventos", eventos);//vai pegar o eventos do html e colocar a lista do banco
+		return mv;
+	}
+	
+	
+	@RequestMapping("/{id}")
+	public ModelAndView detalhesEvento(@PathVariable("id") Integer id) 
+	{
+		Evento evento = er.findById(id);
+		ModelAndView mv = new ModelAndView("detalhesEvento");
+		mv.addObject("evento", evento);
+		System.out.println();
+		return mv;
+	}
+	
+}

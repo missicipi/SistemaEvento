@@ -1,0 +1,5 @@
+package com.eventosapp.br.controller;
+
+public class EventoController {
+
+}

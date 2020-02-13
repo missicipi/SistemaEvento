@@ -1,0 +1,5 @@
+package com.eventosapp.br.repository;
+
+public interface RepositoryConvidado {
+
+}
