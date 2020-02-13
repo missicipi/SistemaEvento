@@ -56,13 +56,6 @@ public class EventoController {
 		mv.addObject("convidados", convidados);
 		return mv;
 	}
-	
-	@RequestMapping("/deletar")
-	public String deletarEvento(Integer id) {
-		Evento evento = er.findById(id);//vai buscar
-		er.delete(evento);//pegar e apagar
-		return "redirect:/eventos";//vai voltar para pagina
-	}
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.POST)
 	public String detalhesEvento1(@PathVariable("id") Integer id, Convidado convidado) {

@@ -38,7 +38,6 @@
 	<br>
 
 	<div th:each="evento : ${evento}" class="container detalhesEvento">
-	<h5>Detalhes do Evento</h5>
 		<div class="row">
 			<p>
 				Nome: <span th:text="${evento.nome}"> </span>
